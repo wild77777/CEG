@@ -21,7 +21,7 @@ function Hub({ onEnter }) {
           <div className="hub-content">
             <span className="hub-tag">El instituto</span>
             <h2 className="hub-name">CEGI</h2>
-            <p className="hub-desc">Centro de Estudios Gastronómicos Internacional. Forma tu carrera en la cocina.</p>
+            <p className="hub-desc">Centro Educativo Gastronómico. Forma tu carrera en la cocina.</p>
             <span className="hub-enter">Entrar al instituto <Icon.arrow width="18" height="18" /></span>
           </div>
         </button>

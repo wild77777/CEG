@@ -44,44 +44,98 @@ const YOYAKU_MENU = [
 ];
 
 // ---------- CEGI: PROGRAMAS ----------
+const SCHEDULE_AM_PM = [
+  { label: "Matutino", time: "09:00 – 13:00" },
+  { label: "Vespertino", time: "13:30 – 17:30" },
+];
+
 const CEGI_PROGRAMS = [
   {
     id: "p1",
     name: "Cocina Profesional",
-    kicker: "Carrera insignia",
+    title2: "Sous Chef",
+    kicker: "Certificación Internacional",
     duration: "18 meses",
-    modality: "Presencial · Lun a Vie",
-    desc: "Formación integral en técnicas de cocina caliente y fría, fondos, salsas madre, emplatado y gestión de cocina profesional.",
-    points: ["Técnicas clásicas y contemporáneas", "Prácticas en cocina-laboratorio", "Pasantía en restaurante aliado"],
+    days: "Lunes y Miércoles",
+    modality: "Presencial",
+    schedule: SCHEDULE_AM_PM,
+    stats: { modules: 13, weeks: 88, hours: 696 },
+    desc: "Formación integral en cocina profesional: del dominio de las bases y técnicas a la manipulación, conservación y panadería. Sales listo para liderar una cocina.",
+    points: ["Bases de cocina", "Técnicas y servicio", "Manipulación y conservación de alimentos", "Panadería y más"],
   },
   {
     id: "p2",
-    name: "Cocina Asiática & Sushi",
-    kicker: "Especialización",
-    duration: "6 meses",
-    modality: "Presencial · Sáb intensivo",
-    desc: "Inmersión en cocina japonesa y china: corte de pescado, arroz avinagrado, dim sum, wok y montaje de barra de sushi.",
-    points: ["Barra de sushi profesional", "Manejo de wok y vaporeras", "Mentoría del equipo YOYAKU"],
+    name: "Pastelería",
+    title2: "Pastry Chef",
+    kicker: "Certificación Profesional",
+    duration: "12 meses",
+    days: "Martes y Jueves",
+    modality: "Presencial",
+    schedule: SCHEDULE_AM_PM,
+    stats: { modules: 6, weeks: 24, hours: 192 },
+    desc: "Del pan de masa madre a la repostería fina: laminados, chocolatería, postres de plato y diseño de tortas con técnica profesional.",
+    points: ["Panadería y bollería", "Repostería fina", "Chocolatería y confitería", "Postres de autor"],
   },
   {
     id: "p3",
-    name: "Pastelería & Panadería",
-    kicker: "Carrera",
-    duration: "12 meses",
-    modality: "Presencial · Lun a Vie",
-    desc: "Del pan de masa madre a la repostería fina: laminados, chocolatería, postres de plato y diseño de tortas.",
-    points: ["Laboratorio de panadería", "Chocolatería y confitería", "Diseño de postres de autor"],
+    name: "Coctelería & Bartender",
+    title2: "Bartender Profesional · A y B",
+    kicker: "Certificación Profesional",
+    duration: "6 meses",
+    days: "Viernes",
+    modality: "Presencial",
+    schedule: SCHEDULE_AM_PM,
+    desc: "Mixología, coctelería clásica y de autor, servicio de bar y manejo profesional de alimentos y bebidas (A y B).",
+    points: ["Coctelería clásica y de autor", "Mixología y técnicas de bar", "Servicio y atención A y B", "Montaje y gestión de barra"],
   },
   {
     id: "p4",
-    name: "Gestión Gastronómica",
-    kicker: "Diplomado",
-    duration: "8 meses",
-    modality: "Híbrido · Nocturno",
-    desc: "Costos, escandallos, control de inventarios, marketing y apertura de negocios de alimentos y bebidas.",
-    points: ["Ingeniería de menú y costos", "Marketing y redes", "Plan de negocio final"],
+    name: "Cursos & Seminarios",
+    title2: "Chef de Partie y más",
+    kicker: "Formación corta",
+    duration: "Variable",
+    days: "Horarios flexibles",
+    modality: "Presencial",
+    schedule: null,
+    desc: "Programas cortos y seminarios especializados para potenciar tu perfil: Chef de Partie, técnicas puntuales y tendencias de la industria.",
+    points: ["Chef de Partie", "Seminarios especializados", "Técnicas puntuales", "Certificado de participación"],
   },
 ];
+
+// ---------- CEGI: MALLA CURRICULAR (por programa) ----------
+const CEGI_CURRICULUM = {
+  p1: {
+    program: "Cocina Profesional · Sous Chef",
+    note: "Certificación Internacional avalada. 13 módulos progresivos.",
+    modules: [
+      { n: "01", name: "Bases de cocina", weeks: 6, hours: 48, topics: ["Cortes I y II", "Fondos", "Sopas", "Salsas madres", "Vinagretas y mayonesa", "Mantequilla", "Arroces"] },
+      { n: "02", name: "Técnicas de servicio", weeks: 6, hours: 48, topics: ["Servicio y calidad", "Tipos de servicio", "Catación de vinos", "Sangría", "Charoles y platos", "Montaje de mesa", "Barismo", "Sorbetes y smoothies"] },
+      { n: "04", name: "Manipulación y conservación de alimentos", weeks: 7, hours: 56, topics: ["Higiene de alimentos", "Contaminación de alimentos", "ETA", "Almacenamiento A y B", "Técnicas de conservación", "Métodos de conservación", "Métodos de congelación"] },
+      { n: "05", name: "Panadería", weeks: 8, hours: 64, topics: ["Introducción a la panadería", "Formulaciones", "Panadería ecuatoriana", "Panadería europea"] },
+      { n: "06", name: "Bares", weeks: 6, hours: 56, topics: ["Tipos de almíbares", "Toppings", "Licores cremosos", "Licores espirituosos", "Cocteles aperitivos", "Cocteles largos", "Cocteles clásicos", "Bebidas milkshake"] },
+      { n: "08", name: "Cocina Fría", weeks: 8, hours: 64, topics: ["Ceviches", "Canapés", "Entradas", "Ensaladas", "Mousses", "Fiambres", "Charcutería"] },
+      { n: "09", name: "Emprendimiento Gastronómico", weeks: 6, hours: 48, topics: ["Costos", "Administración A y B", "Ingeniería de menú", "Regulaciones de establecimientos", "Emprendimiento en A y B", "Herramientas de ventas en redes"] },
+      { n: "10", name: "Fundamentos de Pastelería I", weeks: 8, hours: 64, topics: ["Tipos de merengues", "Frosting", "Tipos de cremas pasteleras", "Masas quebradas", "Decoración y mangueado", "Tipos de masas", "Cupcakes", "Mini tortas"] },
+      { n: "12", name: "Cocina Ecuatoriana", weeks: 8, hours: 64, topics: ["Platos típicos costa", "Platos típicos sierra", "Platos típicos amazónica", "Tipos de bebidas ecuatorianas"] },
+      { n: "14", name: "Pastelería II", weeks: 7, hours: 56, topics: ["Pastillaje", "Forrado", "Repostería", "Chocolatería", "Tortas navideñas", "Tortas clásicas"] },
+      { n: "15", name: "Nutrición", weeks: 4, hours: 32, topics: ["Tipos de alimentación", "Dietas especiales", "Dietas para bajar de peso", "Dieta infantil", "Formulación de dietas"] },
+      { n: "16", name: "Cocina Internacional", weeks: 8, hours: 64, topics: ["Cocina española", "Cocina italiana", "Cocina francesa", "Cocina japonesa", "Cocina americana"] },
+      { n: "17", name: "Catering y eventos", weeks: 6, hours: 32, topics: ["Eventos y su clasificación", "Planificación y logística", "Catering", "Desarrollo de eventos de graduación"] },
+    ],
+  },
+  p2: {
+    program: "Pastelería · Pastry Chef",
+    note: "Certificación Profesional. 6 módulos de 4 semanas (32 h c/u).",
+    modules: [
+      { n: "I", name: "Panadería I", weeks: 4, hours: 32, topics: ["Introducción a la panadería", "Formulaciones", "Formulación de pan de dulce", "Formulación de pan de sal", "Formulación de pan mixto"] },
+      { n: "II", name: "Panadería II", weeks: 4, hours: 32, topics: ["Pan ecuatoriano", "Masas hojaldradas", "Panadería internacional", "Panadería tradicional"] },
+      { n: "III", name: "Pastelería I", weeks: 4, hours: 32, topics: ["Introducción a la pastelería", "Tipos de merengues", "Tipos de frosting", "Tipos de cremas pasteleras", "Tipos de masas quebradas", "Decoración y mangueados", "Tipos de masas"] },
+      { n: "IV", name: "Pastelería II", weeks: 4, hours: 32, topics: ["Mini tortas", "Pastillajes", "Forrados", "Tortas clásicas", "Tortas de vitrinas", "Tortas espejos", "Tortas temáticas", "Postres", "Pop cakes", "Magnum cakes"] },
+      { n: "V", name: "Emprendimiento", weeks: 4, hours: 32, topics: ["Costos", "Administración A y B", "Emprendimiento", "Control de inventario", "Receta estándar", "Ingeniería de menú", "Pastelería innovadora"] },
+      { n: "VI", name: "Chocolatería", weeks: 4, hours: 32, topics: ["Bombones", "Bombones rellenos", "Bombones con licor", "Huevos de chocolate", "Confitería", "Mousse de chocolate"] },
+    ],
+  },
+};
 
 // ---------- CEGI: CHEFS / PROFESORES ----------
 const CEGI_CHEFS = [
@@ -89,6 +143,29 @@ const CEGI_CHEFS = [
   { id: "c2", name: "Chef Kenji Tanaka", role: "Líder de Cocina Asiática", specialty: "Sushi y cocina japonesa · Itamae", years: "Barra YOYAKU" },
   { id: "c3", name: "Chef Andrés Pino", role: "Jefe de Pastelería", specialty: "Repostería fina y chocolatería", years: "Le Cordon Bleu, París" },
   { id: "c4", name: "Chef Lucía Vera", role: "Docente de Gestión", specialty: "Costos y administración de A&B", years: "15 años en hotelería" },
+];
+
+// ---------- CEGI: PILARES / METODOLOGÍA ----------
+const CEGI_PILLARS = [
+  { id: "f1", k: "01", t: "Aprender haciendo", d: "El 80% del tiempo es práctica real en cocina-laboratorio. Cocinas desde el primer día, no desde el segundo año." },
+  { id: "f2", k: "02", t: "Chefs en activo", d: "Te forman profesionales que siguen al frente de cocinas y restaurantes. Técnica vigente, no teoría de manual." },
+  { id: "f3", k: "03", t: "Grupos pequeños", d: "Máximo 16 estudiantes por estación. Atención cercana, corrección inmediata y tu propio puesto de trabajo." },
+  { id: "f4", k: "04", t: "Puente al empleo", d: "Pasantías en restaurantes aliados y bolsa de empleo. Sales con experiencia real y contactos en la industria." },
+];
+
+// ---------- CEGI: PROCESO DE ADMISIÓN ----------
+const CEGI_PROCESS = [
+  { n: "01", t: "Solicita información", d: "Llena el formulario y un asesor te envía el plan de estudios, costos y fechas." },
+  { n: "02", t: "Entrevista personal", d: "Conversamos sobre tus metas y resolvemos todas tus dudas, sin compromiso." },
+  { n: "03", t: "Reserva tu cupo", d: "Formaliza tu matrícula y asegura tu puesto en la cohorte que elijas." },
+  { n: "04", t: "¡Bienvenido a CEGI!", d: "Recibes tu kit de cocina, uniforme y arrancas tu formación." },
+];
+
+// ---------- CEGI: TESTIMONIOS ----------
+const CEGI_TESTIMONIALS = [
+  { id: "t1", quote: "Entré sin saber sostener un cuchillo y salí liderando una cocina. La práctica constante lo cambia todo.", name: "Daniela Aguirre", role: "Egresada · Sous chef en Guayaquil" },
+  { id: "t2", quote: "La especialización en sushi me abrió las puertas. Hoy manejo mi propia barra los fines de semana.", name: "Mateo Ordóñez", role: "Egresado · Cocina Asiática" },
+  { id: "t3", quote: "Los chefs te exigen como en una cocina real. Esa presión bien guiada me preparó para el mundo profesional.", name: "Valeria Muñoz", role: "Egresada · Pastería & Panadería" },
 ];
 
 // ---------- CONTACTO / DATOS ----------
@@ -101,13 +178,17 @@ const INFO = {
     { d: "Viernes – Sábado", h: "12:00 – 23:30" },
     { d: "Domingo", h: "13:00 – 21:00" },
   ],
-  cegiAddress: "Campus Gastronómico · Av. de la Cultura 456, Quito",
-  cegiPhone: "+593 2 222 2222",
+  cegiAddress: "Gabriel José Luque y Francisco Avilés · Guayaquil, Ecuador",
+  cegiCity: "Guayaquil · Ecuador",
+  cegiPhone: "0985304070",
+  cegiPhonePretty: "+593 98 530 4070",
   cegiEmail: "admisiones@cegi.edu.ec",
+  cegiMapLink: "https://www.google.com/maps/search/?api=1&query=Gabriel%20Jos%C3%A9%20Luque%20y%20Francisco%20Avil%C3%A9s%2C%20Guayaquil%2C%20Ecuador",
+  cegiMapEmbed: "https://maps.google.com/maps?q=Gabriel%20Jos%C3%A9%20Luque%20y%20Francisco%20Avil%C3%A9s%2C%20Guayaquil%2C%20Ecuador&z=16&output=embed",
   deposit: 10,
 };
 
 Object.assign(window, {
   YOYAKU_CATEGORIES, YOYAKU_MENU,
-  CEGI_PROGRAMS, CEGI_CHEFS, INFO,
+  CEGI_PROGRAMS, CEGI_CHEFS, CEGI_CURRICULUM, CEGI_PILLARS, CEGI_PROCESS, CEGI_TESTIMONIALS, INFO,
 });

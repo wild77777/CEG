@@ -14,7 +14,7 @@ const CEGI_ACCENTS = ["#8a2b2b", "#1f6f5c", "#b5762a", "#3a4a7c"];
 
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-  const [route, setRoute] = React.useState("hub");
+  const [route, setRoute] = React.useState("cegi");
 
   React.useEffect(() => { window.scrollTo(0, 0); }, [route]);
 
