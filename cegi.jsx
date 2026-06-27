@@ -43,7 +43,7 @@ function CegiHero({ onPrograms, onEnroll }) {
         </div>
       </div>
       <div className="c-hero-photo">
-        <Photo id="cegi-hero" label="FOTO · estudiantes en cocina-laboratorio" />
+        <img src="cegi-cocina.jpeg" alt="Cocina-laboratorio profesional de CEGI" className="c-hero-img" />
         <span className="c-hero-badge"><Icon.spark width="16" height="16" /> Admisiones abiertas 2026</span>
       </div>
     </section>
@@ -276,7 +276,7 @@ function CegiChefs() {
         {CEGI_CHEFS.map((c) => (
           <article key={c.id} className="c-chef">
             <div className="c-chef-photo">
-              <Photo id={"chef-" + c.id} label="RETRATO" />
+              <img src={"chef-" + c.id + ".webp"} alt={c.name} className="c-chef-img" />
             </div>
             <h3>{c.name}</h3>
             <p className="c-chef-role">{c.role}</p>
@@ -307,7 +307,7 @@ function CegiGallery() {
       <div className="c-gallery">
         {slots.map((s) => (
           <div key={s.id} className={"c-gal " + s.span}>
-            <Photo id={"cegi-" + s.id} label={"FOTO · " + s.label} />
+            <img src={"gallery-" + s.id + ".webp"} alt={s.label} className="c-gal-img" />
           </div>
         ))}
       </div>

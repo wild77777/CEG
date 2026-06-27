@@ -139,10 +139,10 @@ const CEGI_CURRICULUM = {
 
 // ---------- CEGI: CHEFS / PROFESORES ----------
 const CEGI_CHEFS = [
-  { id: "c1", name: "Chef Mariana Salcedo", role: "Directora Académica", specialty: "Cocina contemporánea ecuatoriana", years: "20 años de trayectoria" },
-  { id: "c2", name: "Chef Kenji Tanaka", role: "Líder de Cocina Asiática", specialty: "Sushi y cocina japonesa · Itamae", years: "Barra YOYAKU" },
-  { id: "c3", name: "Chef Andrés Pino", role: "Jefe de Pastelería", specialty: "Repostería fina y chocolatería", years: "Le Cordon Bleu, París" },
-  { id: "c4", name: "Chef Lucía Vera", role: "Docente de Gestión", specialty: "Costos y administración de A&B", years: "15 años en hotelería" },
+  { id: "c1", name: "Lic. Jesús Zambrano", role: "Director de Carrera · CEO de CEGI", specialty: "Dirección académica y gestión", years: "20 años creando profesionales" },
+  { id: "c2", name: "Chef Lady Vargas", role: "Dirigente de Panadería", specialty: "Panadería profesional", years: "15 años de experiencia" },
+  { id: "c3", name: "Pastry Chef Viviana Ríos Freire", role: "Pastelería", specialty: "Pastelería fina y repostería", years: "16 años de experiencia" },
+  { id: "c4", name: "Fernando Rubira", role: "Mixólogo · Coctelería", specialty: "Mixología y servicio de bar", years: "20 años de experiencia" },
 ];
 
 // ---------- CEGI: PILARES / METODOLOGÍA ----------

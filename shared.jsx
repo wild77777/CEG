@@ -95,38 +95,12 @@ function MenuTag({ kind }) {
   );
 }
 
-// Logo CEGI oficial (vector HD): olla + "CEGI" + barra roja + descriptor
-function CegiLogo({ size = 40, showSub = true, light = false, onClick }) {
-  const ink = light ? "#ffffff" : "#15265e";
-  const red = "#d11f26";
-  const sw = Math.max(2.4, 64 * 0.045);
+// Logo CEGI oficial (imagen). light => versión clara para fondos oscuros.
+function CegiLogo({ size = 40, light = false, onClick }) {
+  const src = light ? "cegi-logo-white.png" : "cegi-logo.png";
   return (
-    <button className="cegi-logo" onClick={onClick} style={{ background: "none", border: "none", padding: 0, cursor: onClick ? "pointer" : "default", textAlign: "left", display: "flex", alignItems: "center", gap: size * 0.22, whiteSpace: "nowrap" }}>
-      {/* olla */}
-      <svg viewBox="0 0 64 60" width={size * 1.15} height={size * 1.08} style={{ flexShrink: 0 }} aria-hidden="true">
-        <g fill="none" stroke={ink} strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round">
-          <rect x="27" y="4" width="10" height="6" rx="3" fill={ink} stroke="none" />
-          <path d="M13 25 C16 13 48 13 51 25" />
-          <path d="M9 26 H55" />
-          <path d="M13 28 L16 50 C16.4 53 18 54.5 21 54.5 H43 C46 54.5 47.6 53 48 50 L51 28" />
-          <path d="M13 31 C6.5 31 6.5 41 13 41" />
-          <path d="M51 31 C57.5 31 57.5 41 51 41" />
-        </g>
-      </svg>
-      {/* CEGI + tagline */}
-      <span style={{ display: "flex", flexDirection: "column", gap: size * 0.04 }}>
-        <span style={{ fontFamily: "var(--c-sans)", fontWeight: 800, fontSize: size * 1.18, lineHeight: .92, letterSpacing: "-.01em", color: ink }}>CEGI</span>
-        {showSub && <span style={{ fontFamily: "var(--c-sans)", fontSize: Math.max(7, size * 0.2), letterSpacing: ".1em", textTransform: "uppercase", color: light ? "rgba(255,255,255,.72)" : red, fontWeight: 700 }}>¡Orientando profesionales!</span>}
-      </span>
-      {/* barra roja + descriptor */}
-      {showSub && (
-        <span style={{ display: "flex", alignItems: "center", gap: size * 0.2 }}>
-          <span style={{ width: Math.max(2, size * 0.07), height: size * 1.05, background: red, borderRadius: 2 }} />
-          <span style={{ fontFamily: "var(--c-sans)", fontWeight: 700, fontSize: size * 0.31, lineHeight: 1.08, color: ink }}>
-            Centro Educativo<br />Gastronómico
-          </span>
-        </span>
-      )}
+    <button className="cegi-logo" onClick={onClick} style={{ background: "none", border: "none", padding: 0, cursor: onClick ? "pointer" : "default", display: "flex", alignItems: "center" }} aria-label="CEGI · Centro Educativo Gastronómico">
+      <img src={src} alt="CEGI · Centro Educativo Gastronómico" style={{ height: size * 1.35, width: "auto", display: "block" }} />
     </button>
   );
 }
