@@ -11,7 +11,7 @@ function CegiNav({ onNav, section }) {
         ))}
       </nav>
       <div className="c-nav-right">
-        <button className="btn btn-c-accent sm" onClick={() => onNav("admision")}>Inscríbete</button>
+        <button className="btn btn-c-accent sm" onClick={() => onNav("admision")}><Icon.whatsapp width="16" height="16" /> Inscríbete</button>
         <button className="c-burger" onClick={() => setOpen(!open)} aria-label="Menú">
           <span /><span /><span />
         </button>
@@ -44,7 +44,22 @@ function CegiHero({ onPrograms, onEnroll }) {
       </div>
       <div className="c-hero-photo">
         <img src="cegi-cocina.jpeg" alt="Cocina-laboratorio profesional de CEGI" className="c-hero-img" />
-        <span className="c-hero-badge"><Icon.spark width="16" height="16" /> Admisiones abiertas 2026</span>
+        <span className="c-hero-badge">
+          <svg className="c-badge-pot" viewBox="0 0 24 24" width="17" height="17" fill="none" aria-hidden="true">
+            <g className="c-steam" stroke="var(--c-accent)" strokeWidth="1.5" strokeLinecap="round">
+              <path d="M9 5 C9 3.5 10 3.2 10 2" />
+              <path d="M12 5 C12 3.3 13 3.2 13 1.8" />
+              <path d="M15 5 C15 3.5 16 3.2 16 2" />
+            </g>
+            <g stroke="var(--c-accent)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none">
+              <path d="M5 9 H19" />
+              <path d="M6 9 L7 18 C7.1 19.2 8 20 9.2 20 H14.8 C16 20 16.9 19.2 17 18 L18 9" />
+              <path d="M5 11 C2.7 11 2.7 15 5 15" />
+              <path d="M19 11 C21.3 11 21.3 15 19 15" />
+            </g>
+          </svg>
+          Admisiones abiertas 2026
+        </span>
       </div>
     </section>
   );
@@ -315,6 +330,30 @@ function CegiGallery() {
   );
 }
 
+function CegiAvales() {
+  const avales = [
+    { src: "aval-worldchefs.png", name: "World Association of Chefs Societies", short: "WorldChefs" },
+    { src: "aval-aega.png", name: "Asociación de Escuelas de Gastronomía de las Américas", short: "AEGA" },
+    { src: "aval-ace.png", name: "Asociación de Chefs del Ecuador", short: "ACE" },
+  ];
+  return (
+    <section className="c-avales" id="avales-c">
+      <div className="c-section-head center">
+        <p className="c-eyebrow">Respaldo internacional</p>
+        <h2 className="c-h2">Avalados y afiliados</h2>
+        <p className="c-section-lead">Nuestra formación está respaldada por asociaciones gastronómicas reconocidas a nivel nacional e internacional.</p>
+      </div>
+      <div className="c-avales-row">
+        {avales.map((a) => (
+          <figure key={a.short} className="c-aval">
+            <img src={a.src} alt={a.name} title={a.name} />
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function CegiTestimonials() {
   return (
     <section className="c-testi">
@@ -505,6 +544,7 @@ function Cegi({ onBack, onYoyaku }) {
       <CegiPillars />
       <CegiPrograms onEnroll={goEnroll} />
       <CegiChefs />
+      <CegiAvales />
       <CegiTestimonials />
       <CegiGallery />
       <CegiProcess />
